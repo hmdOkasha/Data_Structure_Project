@@ -1,0 +1,2 @@
+﻿C:\Users\clear\source\repos\Data_Structure_Project\Data_Structure_Project\Data_Structure_Project.vcxproj : warning  : The build tools for v143 cannot be found. Install v143 to build using the v143 build tools.
+
