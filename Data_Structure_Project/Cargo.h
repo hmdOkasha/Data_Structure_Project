@@ -6,4 +6,5 @@ class Cargo {
 	int x;
 	int y;
 	int z;
+
 };
