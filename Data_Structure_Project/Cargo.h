@@ -3,8 +3,8 @@
 using namespace std;
 
 class Cargo {
-	int x;
 	int y;
 	int z;
 	int DSP;
+	int x;
 };
