@@ -42,6 +42,7 @@
     <ClInclude Include="Company.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Trucks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -52,6 +53,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NormalTrucks.h">
+=======
+    <ClInclude Include="UI.h">
+>>>>>>> 1bd0d676c1c159251960b6ef0ae2fbfc72c5705b
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
