@@ -148,6 +148,7 @@
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
