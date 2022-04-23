@@ -21,7 +21,12 @@ private:
 public:
 	Cargo()
 	{
-		
+		preparationTime.setTime(0, 0);
+		loadAndUnloadTime.setTime(0, 0);
+		typeOfCargo = Normal;
+		deliveryDistance = 0;
+		cost = 0;
+		ID = 0;
 	}
 	Cargo(Time prepTime, Time loadTime, cargoType type, int dist, int cst, int id)
 	{
@@ -62,9 +67,17 @@ public:
 	{
 		return preparationTime;
 	}
+	int getIntPT()
+	{
+		return preparationTime.toInt(preparationTime);
+	}
 	Time getLoadAndUnloadTime()
 	{
 		return loadAndUnloadTime;
+	}
+	int getIntLULT()
+	{
+		return loadAndUnloadTime.toInt(loadAndUnloadTime);
 	}
 	cargoType getTypeOfCargo()
 	{
