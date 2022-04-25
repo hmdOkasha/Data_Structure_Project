@@ -145,6 +145,7 @@
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="PriorityNode.h" />
+    <ClInclude Include="PriorityQ.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="Time.h" />
