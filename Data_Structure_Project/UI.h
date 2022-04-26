@@ -4,8 +4,8 @@ using namespace std;
 #include"Cargo.h"
 #include"Time.h"
 #include"LinkedQueue.h"
-#include"PriorityQueue.h"
 #include"LinkedList.h"
+#include"PriorityQ.h"
 
 enum UI_MODE
 {
@@ -24,7 +24,10 @@ int chooseMode() {
 	}
 	return num;
 }
-void outputWaitingCargos(LinkedQueue<Cargo*>waitingnormal, LinkedQueue<Cargo*>waitingspecial,PriorityQueue<Cargo*>waitingVIP) {
+void outputWaitingCargos(LinkedQueue<Cargo*>waitingnormal, LinkedQueue<Cargo*>waitingspecial,PriQ<Cargo*>waitingVIP) {
+	int x = QueueCount(waitingnormal);
+	int y = QueueCount(waitingspecial);
+	int z = waitingVIP.PrioQueueCount(waitingVIP);
 	cout << "[";
 	PrintQueue(waitingnormal);
 	cout << "]";
@@ -32,18 +35,19 @@ void outputWaitingCargos(LinkedQueue<Cargo*>waitingnormal, LinkedQueue<Cargo*>wa
 	PrintQueue(waitingspecial);
 	cout << ")";
 	cout << "{";
-	PrintQueue(waitingVIP);
-	cout << "}";
+	waitingVIP.PrintPrioQueue(waitingVIP);
+	cout << "}" << endl;
+	cout << "----------------------------------------------------" << endl;
 }
-void outputDeleviredCargos(LinkedQueue<Cargo*>waitingnormal, LinkedQueue<Cargo*>waitingspecial, PriorityQueue<Cargo*>waitingVIP) {
+void outputDeleviredCargos(LinkedQueue<Cargo*>deliverednormal, LinkedQueue<Cargo*>deliveredspecial, PriQ<Cargo*>deliveredVIP) {
 	cout << "[";
-	PrintQueue(waitingnormal);
+	PrintQueue(deliverednormal);
 	cout << "]";
 	cout << "(";
-	PrintQueue(waitingspecial);
+	PrintQueue(deliveredspecial);
 	cout << ")";
 	cout << "{";
-	PrintQueue(waitingVIP);
+	deliveredVIP.PrioQueueCount(deliveredVIP);
 	cout << "}";
 }
 ifstream f;

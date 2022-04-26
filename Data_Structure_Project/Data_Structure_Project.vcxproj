@@ -149,6 +149,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="NormalTrucks.h" />
     <ClInclude Include="PriorityNode.h" />
+    <ClInclude Include="PriorityQ.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Promotion.h" />
     <ClInclude Include="QueueADT.h" />

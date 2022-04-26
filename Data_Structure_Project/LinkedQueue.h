@@ -17,7 +17,7 @@ public:
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
-	void PrintQueue(LinkedQueue<T> Q);
+	//void PrintQueue(LinkedQueue<T> Q);
 	~LinkedQueue();
 };
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -148,5 +148,14 @@ void PrintQueue(LinkedQueue<T> Q)
 		else
 			cout << K << ",";
 	}
+}
+template <typename T>
+int QueueCount(LinkedQueue<T> Q)
+{
+	int c = 0;
+	T x;
+	while (Q.dequeue(x))
+		c++;
+	return c;
 }
 #endif

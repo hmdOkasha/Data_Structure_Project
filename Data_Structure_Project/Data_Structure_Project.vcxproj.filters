@@ -71,5 +71,8 @@
 >>>>>>> 6c596a8e71d58f550e32c7b9b09e93161a398b52
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PriorityQ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
