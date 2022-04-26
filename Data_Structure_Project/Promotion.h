@@ -5,11 +5,8 @@
 using namespace std;
 class Promotion
 {
-	void Execute(Cargo C)
+	void Execute()
 	{
-		if (C.getTypeOfCargo() == Normal && C.is_loaded() == false)
-		{
-			C.setTypeOfCargo(VIP);
-		}
+
 	}
 };

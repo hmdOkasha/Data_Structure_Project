@@ -48,7 +48,7 @@ public:
 	}
 	void setTypeOfCargo(cargoType type)
 	{
-		typeOfCargo = type;
+		typeOfCargo = type;	
 	}
 	void setDeliveryDistance(int dist)
 	{
@@ -94,5 +94,9 @@ public:
 	int getID()
 	{
 		return ID;
+	}
+	bool is_loaded()
+	{
+		return true;
 	}
 };
