@@ -24,32 +24,35 @@ int chooseMode() {
 	}
 	return num;
 }
-void outputWaitingCargos(LinkedQueue<Cargo*>waitingnormal, LinkedQueue<Cargo*>waitingspecial,PriQ<Cargo*>waitingVIP) {
-	int x = QueueCount(waitingnormal);
-	int y = QueueCount(waitingspecial);
-	int z = waitingVIP.PrioQueueCount(waitingVIP);
+void inputfile(ifstream f) {
+	int x;
+	f.open("note");
+	while (!f.eof()) {
+		f >> x;
+		cout << x << endl;
+	}
+}
+
+void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, PriQ<Cargo*>VIP,string message,bool flag) {
+	int ncount = QueueCount(normal);
+	int scount = QueueCount(special);
+	int VIPcount = VIP.PrioQueueCount(VIP);
+	cout << ncount + scount + VIPcount << " " << message << ": ";
 	cout << "[";
-	PrintQueue(waitingnormal);
-	cout << "]";
+	PrintQueue(normal);
+	cout << "] ";
 	cout << "(";
-	PrintQueue(waitingspecial);
-	cout << ")";
+	PrintQueue(special);
+	cout << ") ";
 	cout << "{";
-	waitingVIP.PrintPrioQueue(waitingVIP);
+	VIP.PrioQueueCount(VIP);
 	cout << "}" << endl;
-	cout << "----------------------------------------------------" << endl;
+	if (flag) {
+		cout << "----------------------------------------------------" << endl;
+		flag = true;
+	}
 }
-void outputDeleviredCargos(LinkedQueue<Cargo*>deliverednormal, LinkedQueue<Cargo*>deliveredspecial, PriQ<Cargo*>deliveredVIP) {
-	cout << "[";
-	PrintQueue(deliverednormal);
-	cout << "]";
-	cout << "(";
-	PrintQueue(deliveredspecial);
-	cout << ")";
-	cout << "{";
-	deliveredVIP.PrioQueueCount(deliveredVIP);
-	cout << "}";
-}
-ifstream f;
+
+
 
 
