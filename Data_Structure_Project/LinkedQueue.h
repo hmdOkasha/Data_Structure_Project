@@ -17,6 +17,7 @@ public:
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
+	void PrintQueue(LinkedQueue<T> Q);
 	~LinkedQueue();
 };
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -136,5 +137,16 @@ LinkedQueue<T>::~LinkedQueue()
 	cout << "\n Is LinkedQueue Empty now?? ==> " << boolalpha << isEmpty();
 	cout << "\nEnding LinkedQueue destructor..." << endl;
 }
-
+template<typename T>
+void PrintQueue(LinkedQueue<T> Q)
+{
+	T K;
+	//cout << "\nQueue contents: ";
+	while (Q.dequeue(K)) {
+		if (Q.isEmpty())
+			cout << K << "";
+		else
+			cout << K << ",";
+	}
+}
 #endif

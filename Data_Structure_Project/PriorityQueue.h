@@ -13,6 +13,7 @@ private:
 public:
 	PriorityQueue();
 	PriorityQueue(const T& n_item);
+	void PrintQueue(PriorityQueue<T> Q);
 	~PriorityQueue();
 
 
@@ -71,7 +72,18 @@ void PriorityQueue<T>::swapupwards(PriorirityNode<T>* n1) {
 		n2->SetRight() = n1Right;
 	}
 }
-
+template<typename T>
+void PrintQueue(PriorityQueue<T> Q)
+{
+	T K;
+	//cout << "\nQueue contents: ";
+	while (Q.dequeue(K)) {
+		if (Q.isEmpty())
+			cout << K << "";
+		else
+			cout << K << ",";
+	}
+}
 
 template <typename T>
 PriorityQueue<T>::~PriorityQueue() {

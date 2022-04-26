@@ -42,6 +42,7 @@
     <ClInclude Include="Company.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Events.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -52,6 +53,22 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Promotion.h">
+=======
+<<<<<<< HEAD
+    <ClInclude Include="Trucks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VIPTrucks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialTrucks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalTrucks.h">
+=======
+    <ClInclude Include="UI.h">
+>>>>>>> 1bd0d676c1c159251960b6ef0ae2fbfc72c5705b
+>>>>>>> 6c596a8e71d58f550e32c7b9b09e93161a398b52
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

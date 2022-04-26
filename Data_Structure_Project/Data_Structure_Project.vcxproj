@@ -147,11 +147,15 @@
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="NormalTrucks.h" />
     <ClInclude Include="PriorityNode.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Promotion.h" />
     <ClInclude Include="QueueADT.h" />
+    <ClInclude Include="SpecialTrucks.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="Trucks.h" />
+    <ClInclude Include="VIPTrucks.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
