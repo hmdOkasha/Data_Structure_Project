@@ -4,8 +4,9 @@ using namespace std;
 #include"Cargo.h"
 #include"Time.h"
 #include"LinkedQueue.h"
-#include"PriorityQueue.h"
 #include"LinkedList.h"
+#include"PriorityQ.h"
+#include"Time.h"
 
 enum UI_MODE
 {
@@ -21,31 +22,30 @@ int chooseMode() {
 	cin >> num;
 	while (num < 1 || num >3) {
 		cout << "Invalid number, Please select 1 or 2 or 3 to run the program" << endl;
+		cin >> num;
 	}
 	return num;
 }
-void outputWaitingCargos(LinkedQueue<Cargo*>waitingnormal, LinkedQueue<Cargo*>waitingspecial,PriorityQueue<Cargo*>waitingVIP) {
-	cout << "[";
-	PrintQueue(waitingnormal);
-	cout << "]";
-	cout << "(";
-	PrintQueue(waitingspecial);
-	cout << ")";
-	cout << "{";
-	PrintQueue(waitingVIP);
-	cout << "}";
+void Time(Time CT)
+{
+	cout << "Current Time (Day:Hour):" << CT.setTime(<< ":" << CT.hour << endl;
 }
-void outputDeleviredCargos(LinkedQueue<Cargo*>waitingnormal, LinkedQueue<Cargo*>waitingspecial, PriorityQueue<Cargo*>waitingVIP) {
+void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, PriQ<Cargo*>VIP, string message, bool flag) {
+	int ncount = QueueCount(normal);
+	int scount = QueueCount(special);
+	int VIPcount = VIP.PrioQueueCount(VIP);
+	cout << ncount + scount + VIPcount << " " << message << ": ";
 	cout << "[";
-	PrintQueue(waitingnormal);
-	cout << "]";
+	PrintQueue(normal);
+	cout << "] ";
 	cout << "(";
-	PrintQueue(waitingspecial);
-	cout << ")";
+	PrintQueue(special);
+	cout << ") ";
 	cout << "{";
-	PrintQueue(waitingVIP);
-	cout << "}";
+	VIP.PrioQueueCount(VIP);
+	cout << "}" << endl;
+	if (flag) {
+		cout << "----------------------------------------------------" << endl;
+		flag = true;
+	}
 }
-ifstream f;
-
-

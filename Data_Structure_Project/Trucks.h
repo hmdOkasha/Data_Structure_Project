@@ -1,10 +1,11 @@
 #pragma once
+#include "Cargo.h"
 #include "Time.h"
 enum TruckType
 {
-	VIP = 1,
-	Normal = 2,
-	Special = 3
+	VIP_Truck = 1,
+	Normal_Truck = 2,
+	Special_Truck = 3
 };
 
 
