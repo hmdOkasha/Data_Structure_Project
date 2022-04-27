@@ -12,7 +12,7 @@ private:
 public:
 	NormalTrucks()
 	{
-		typeOfTruck = Normal;
+		typeOfTruck = Normal_Truck;
 		truckCapacity = 0;
 		maintenanceTime.setTime(0 ,0);
 		speed = 0;

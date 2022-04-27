@@ -18,6 +18,7 @@
     <ClInclude Include="SpecialTrucks.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Trucks.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="VIPTrucks.h" />
   </ItemGroup>
 </Project>

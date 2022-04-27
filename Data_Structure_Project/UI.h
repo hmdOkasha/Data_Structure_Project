@@ -28,6 +28,7 @@ int chooseMode() {
 }
 
 void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, PriQ<Cargo*>VIP,string message,bool flag) {
+>>>>>>> 0483726036824eec057e3c868de32a12bc764682
 	int ncount = QueueCount(normal);
 	int scount = QueueCount(special);
 	int VIPcount = VIP.PrioQueueCount(VIP);
@@ -45,8 +46,12 @@ void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, PriQ<Ca
 		cout << "----------------------------------------------------" << endl;
 		flag = true;
 	}
+<<<<<<< HEAD
+}
+=======
 }
 
 
 
 
+>>>>>>> 0483726036824eec057e3c868de32a12bc764682

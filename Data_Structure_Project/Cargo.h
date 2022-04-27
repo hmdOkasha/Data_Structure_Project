@@ -4,9 +4,9 @@ using namespace std;
 
 enum cargoType
 {
-	VIP = 1,
-	Normal = 2,
-	Special = 3,
+	VIP_Cargo = 1,
+	Normal_Cargo = 2,
+	Special_Cargo = 3,
 };
 
 class Cargo 
@@ -23,7 +23,7 @@ public:
 	{
 		preparationTime.setTime(0, 0);
 		loadAndUnloadTime.setTime(0, 0);
-		typeOfCargo = Normal;
+		typeOfCargo = Normal_Cargo;
 		deliveryDistance = 0;
 		cost = 0;
 		ID = 0;

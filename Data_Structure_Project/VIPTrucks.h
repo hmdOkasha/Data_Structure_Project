@@ -12,7 +12,7 @@ private:
 public:
 	VIPTrucks()
 	{
-		typeOfTruck = Normal;
+		typeOfTruck = VIP_Truck;
 		truckCapacity = 0;
 		maintenanceTime.setTime(0, 0);
 		speed = 0;

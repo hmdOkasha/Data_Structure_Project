@@ -17,7 +17,8 @@ public:
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
-	//void PrintQueue(LinkedQueue<T> Q);
+	void PrintQueue(LinkedQueue<T> Q);
+	int QueueCount(LinkedQueue<T> Q);
 	~LinkedQueue();
 };
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -138,7 +139,7 @@ LinkedQueue<T>::~LinkedQueue()
 	cout << "\nEnding LinkedQueue destructor..." << endl;
 }
 template<typename T>
-void PrintQueue(LinkedQueue<T> Q)
+void LinkedQueue<T>:: PrintQueue(LinkedQueue<T> Q)
 {
 	T K;
 	//cout << "\nQueue contents: ";
@@ -150,7 +151,7 @@ void PrintQueue(LinkedQueue<T> Q)
 	}
 }
 template <typename T>
-int QueueCount(LinkedQueue<T> Q)
+int LinkedQueue<T>::QueueCount(LinkedQueue<T> Q)
 {
 	int c = 0;
 	T x;
