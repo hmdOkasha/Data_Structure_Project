@@ -23,7 +23,7 @@ public:
 		c.setPreparationTime(P_T);
 		c.setTypeOfCargo(c_t);
 		c.setID(waiting_list.QueueCount(waiting_list) + 1);
-		waiting_list.peek(c);
+		waiting_list.enqueue(c);
 		return event_time;
 	}
 

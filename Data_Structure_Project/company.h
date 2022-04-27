@@ -8,8 +8,7 @@
 #include "LinkedList.h"
 #include "LinkedQueue.h"
 #include "Node.h"
-#include "PriorityNode.h"
-#include "PriorityQueue.h"
+#include "PriorityQ.h"
 #include "QueueADT.h"
 #include <fstream>
 class Company
