@@ -15,7 +15,7 @@ class Cancellation
 	Time Execute(LinkedQueue<Cargo>delivered, LinkedQueue<Cargo>cancelled, Time event_time)
 	{
 		Cargo c;
-		if (!delivered.isEmpty() && c.getTypeOfCargo() == Normal)
+		if (!delivered.isEmpty() && c.getTypeOfCargo() == Normal_Cargo)
 		{
 			delivered.peek(c);
 			cancelled.enqueue(c);

@@ -17,7 +17,7 @@ class Promotion:Events
 	{
 		Cargo c;
 		normal.peek(c);
-		if (c.getTypeOfCargo() == Normal)
+		if (c.getTypeOfCargo() == Normal_Cargo)
 		{
 			VIP.enqueue(c);
 			normal.dequeue(c);
