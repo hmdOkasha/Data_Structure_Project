@@ -6,10 +6,7 @@ using namespace std;
 #include"LinkedQueue.h"
 #include"LinkedList.h"
 #include"PriorityQ.h"
-<<<<<<< HEAD
 #include"Time.h"
-=======
->>>>>>> 0483726036824eec057e3c868de32a12bc764682
 
 enum UI_MODE
 {
@@ -28,21 +25,6 @@ int chooseMode() {
 		cin >> num;
 	}
 	return num;
-}
-<<<<<<< HEAD
-void Time(Time CT)
-{
-	cout << "Current Time (Day:Hour):" << CT.setTime(<< ":" << CT.hour << endl;
-}
-void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, PriQ<Cargo*>VIP, string message, bool flag) {
-=======
-void inputfile(ifstream f) {
-	int x;
-	f.open("note");
-	while (!f.eof()) {
-		f >> x;
-		cout << x << endl;
-	}
 }
 
 void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, PriQ<Cargo*>VIP,string message,bool flag) {
