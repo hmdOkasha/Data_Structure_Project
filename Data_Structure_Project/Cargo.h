@@ -12,12 +12,12 @@ enum cargoType
 class Cargo 
 {
 private:
+	int ID;
 	Time preparationTime;
 	Time loadAndUnloadTime;
 	cargoType typeOfCargo;
 	int deliveryDistance;
 	int cost;
-	int ID;
 public:
 	Cargo()
 	{

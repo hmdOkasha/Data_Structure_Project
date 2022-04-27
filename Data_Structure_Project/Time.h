@@ -11,6 +11,8 @@ private:
 public:
     Time(int d = 0, int h = 0);
     void setTime(int d = 0, int h = 0);
+    int getDay(Time t);
+    int getHour(Time t);
     bool equals(Time);
     int toInt(Time time);
     Time toTime(int t);
@@ -55,4 +57,13 @@ Time Time::toTime(int t)
 void Time::printTime(Time CT)
 {
     cout <<"Current Time (Day:Hour) :" << "(" << CT.day << ":" << CT.hour << ")";
+}
+
+int Time::getDay(Time t)
+{
+    return t.day;
+}
+int Time::getHour(Time t)
+{
+    return t.hour;
 }

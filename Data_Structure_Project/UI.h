@@ -8,12 +8,29 @@ using namespace std;
 #include"PriorityQ.h"
 #include"Time.h"
 
-enum UI_MODE
+void printCargo(LinkedQueue<Cargo *> Q)
 {
-	Interactive,
-	StepByStep,
-	Silent
-};
+	Cargo* K;
+	while(Q.dequeue(K))
+	{
+		if (Q.isEmpty())
+			cout << K->getID() << "";
+		else
+			cout << K->getID() << ",";
+	}
+}
+
+void printVIPCargo(PriQ<Cargo *> Q)
+{
+	Node<Cargo*> *K;
+	while (Q.dequeue(K))
+	{
+		if (Q.isEmpty())
+			cout << K->getItem()->getID() << "";
+		else
+			cout << K->getItem()->getID() << ",";
+	}
+}
 
 int chooseMode() {
 	int num;
@@ -27,31 +44,49 @@ int chooseMode() {
 	return num;
 }
 
+void printCurrentTime(Time CT)
+{
+	cout << "Current Time (Day:Hour) :" << "(" << CT.getDay(CT) << ":" << CT.getHour(CT) << ")";
+}
+
 void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, PriQ<Cargo*>VIP,string message,bool flag) {
->>>>>>> 0483726036824eec057e3c868de32a12bc764682
-	int ncount = QueueCount(normal);
-	int scount = QueueCount(special);
+	int ncount = normal.QueueCount(normal);
+	int scount = special.QueueCount(special);
 	int VIPcount = VIP.PrioQueueCount(VIP);
 	cout << ncount + scount + VIPcount << " " << message << ": ";
 	cout << "[";
-	PrintQueue(normal);
+	printCargo(normal);
 	cout << "] ";
 	cout << "(";
-	PrintQueue(special);
+	printCargo(special);
 	cout << ") ";
 	cout << "{";
-	VIP.PrioQueueCount(VIP);
+	printVIPCargo(VIP);
 	cout << "}" << endl;
 	if (flag) {
 		cout << "----------------------------------------------------" << endl;
 		flag = true;
 	}
-<<<<<<< HEAD
-}
-=======
 }
 
-
-
-
->>>>>>> 0483726036824eec057e3c868de32a12bc764682
+//void outputDelivered(LinkedQueue<Cargo*> normalDelivered, LinkedQueue<Cargo*> specialDelivered, PriQ<Cargo*> VIPDelivered, string message, bool flag)
+//{
+//	int normaldelCount = normalDelivered.QueueCount(normalDelivered);
+//	int specialdelCount = specialDelivered.QueueCount(specialDelivered);
+//	int VIPdelCount = VIPDelivered.PrioQueueCount(VIPDelivered);
+//	cout << normaldelCount + specialdelCount +VIPdelCount << " " << message << ": ";
+//	cout << "[";
+//	printCargo(normalDelivered);
+//	cout << "] ";
+//	cout << "(";
+//	printCargo(specialDelivered);
+//	cout << ") ";
+//	cout << "{";
+//	printVIPCargo(VIPDelivered);
+//	cout << "}" << endl;
+//	if (flag) {
+//		cout << "----------------------------------------------------" << endl;
+//		flag = true;
+//	}
+//	
+//}
