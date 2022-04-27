@@ -6,6 +6,7 @@ using namespace std;
 #include"LinkedQueue.h"
 #include"LinkedList.h"
 #include"PriorityQ.h"
+#include"Time.h"
 
 enum UI_MODE
 {
@@ -21,16 +22,9 @@ int chooseMode() {
 	cin >> num;
 	while (num < 1 || num >3) {
 		cout << "Invalid number, Please select 1 or 2 or 3 to run the program" << endl;
+		cin >> num;
 	}
 	return num;
-}
-void inputfile(ifstream f) {
-	int x;
-	f.open("note");
-	while (!f.eof()) {
-		f >> x;
-		cout << x << endl;
-	}
 }
 
 void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, PriQ<Cargo*>VIP,string message,bool flag) {
