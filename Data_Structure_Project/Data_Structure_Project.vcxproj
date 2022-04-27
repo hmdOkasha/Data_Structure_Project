@@ -139,14 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cancellation.h" />
     <ClInclude Include="Cargo.h" />
     <ClInclude Include="Company.h" />
+    <ClInclude Include="Events.h" />
+    <ClInclude Include="Preparation.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NormalTrucks.h" />
     <ClInclude Include="PriorityNode.h" />
+    <ClInclude Include="PriorityQ.h" />
     <ClInclude Include="PriorityQueue.h" />
+    <ClInclude Include="Promotion.h" />
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="SpecialTrucks.h" />
     <ClInclude Include="Time.h" />

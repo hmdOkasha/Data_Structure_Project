@@ -1,19 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClInclude Include="Cancellation.h" />
     <ClInclude Include="Cargo.h" />
     <ClInclude Include="Company.h" />
+    <ClInclude Include="Events.h" />
+    <ClInclude Include="Preparation.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NormalTrucks.h" />
     <ClInclude Include="PriorityNode.h" />
+    <ClInclude Include="PriorityQ.h" />
     <ClInclude Include="PriorityQueue.h" />
+    <ClInclude Include="Promotion.h" />
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="SpecialTrucks.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Trucks.h" />
-    <ClInclude Include="VIPTrucks.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="VIPTrucks.h" />
   </ItemGroup>
 </Project>
