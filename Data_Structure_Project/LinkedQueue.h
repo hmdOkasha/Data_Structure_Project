@@ -142,7 +142,6 @@ template<typename T>
 void LinkedQueue<T>:: PrintQueue(LinkedQueue<T> Q)
 {
 	T K;
-	//cout << "\nQueue contents: ";
 	while (Q.dequeue(K)) {
 		if (Q.isEmpty())
 			cout << K << "";
