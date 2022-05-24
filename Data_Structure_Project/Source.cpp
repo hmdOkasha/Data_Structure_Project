@@ -99,7 +99,7 @@ int main()
 		com->vipTrucks.enqueue(vt);
 	}
 
-	
+
 	inFile >> eventNum;
 
 	for (int i = 0; i < eventNum; i++)
@@ -153,11 +153,11 @@ int main()
 			// do nothing and let time pass
 		}
 		
-		if (simTime->getHour() != 1 && (simTime->getHour() - 1) % 5 == 0)
+	/*	if (simTime->getHour() != 1 && (simTime->getHour() - 1) % 5 == 0)
 		{
 			if (!com->waitingNormalCargo.isEmpty() || !com->waitingSpecialCargo.isEmpty() || !com->waitingVIPCargo.isEmpty())
 			com->moveToDelivered();
-		}
+		}*/
 
 		ui->printCurrentTime(simTime);
 		ui->outputCargos(com, "Waiting Cargos : ", true);

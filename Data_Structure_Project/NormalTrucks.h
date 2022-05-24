@@ -152,7 +152,7 @@ public:
 				loadedNormalCargo.dequeue(c);
 				if (c->getIntLULT() == NULL)
 					return 0;
-				sum = sum + c->getIntLULT();
+				sum = sum + 2*c->getIntLULT();
 				loadedNormalCargo.enqueue(c);
 			}
 			sumLoadUnload = sum;

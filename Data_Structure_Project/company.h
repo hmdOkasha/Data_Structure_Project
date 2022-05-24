@@ -15,6 +15,7 @@ private:
 	Time cargoWaitTime;
 	Time cargoDeliveryTime;
 	int truckUtilization;
+	int noLoadingTrucks;
 
 public:
 
@@ -33,29 +34,9 @@ public:
 	LinkedQueue<SpecialTrucks*> specialTrucks = LinkedQueue<SpecialTrucks*>();
 
 	
-	Time calculateDeliveryInterval()
-	{
-		//furthest cargo / truck speed + Truck capacity*load unload time + return time
-	}
-	
-	Time calculateWaitTime()
-	{
-		// this should be in class cargo
-		//Preparation time is the time the cargo is created using the preparation event
-		//Move time is the time the truck starts to move which is in phase 2
-	}
-	Time calculateCargoDeliveryTime()
-	{
-		// this should be in class cargo
-		// move time + cargo distance/truck speed + cargo load and unload time
-	}
 	int calculateTruckUtilization()
 	{
 		//total cargos delivered/(truck capacity*total delivery journeys) * (total truck active time/total sim time)
-	}
-	int calculateVIPpriority()
-	{
-		//VIPpriority = (max distance / cargo distance) * 100 + (2 * cost / max cost) * 100 + (min prep time / prep time) * 100
 	}
 	void moveToDelivered()
 	{
@@ -80,5 +61,47 @@ public:
 			waitingVIPCargo.dequeue(c3);
 			deliveredVIPCargo.enqueue(c3);
 		}
+	}
+
+	bool canLoad()
+	{
+		bool h = true;
+		NormalTrucks* nt;
+		SpecialTrucks* st;
+		VIPTrucks* vt;
+		normalTrucks.peek(nt);
+		specialTrucks.peek(st);
+		vipTrucks.peek(vt);
+
+		
+		//if all cargo lists are empty
+		if (waitingNormalCargo.isEmpty() && waitingSpecialCargo.isEmpty() && waitingVIPCargo.isEmpty())
+			return false;
+
+		//case for normal cargos
+		if (waitingNormalCargo.QueueCount() < nt->getTruckCapacity())
+			return false;
+
+		//case for special cargos
+		if (waitingSpecialCargo.QueueCount() < st->getTruckCapacity())
+			return false;
+
+		//case for VIP cargos
+		if (waitingVIPCargo.QueueCount() < vt->getTruckCapacity())
+			return false;
+
+		//If more than 3 trucks are being loaded
+		if (noLoadingTrucks >= 3)
+			return false;
+
+		return h;
+	}
+
+	bool isOffhours(Time sim)
+	{
+		if (sim.getHour() < 5 || sim.getHour() > 23)
+			return true;
+		else
+			return false;
 	}
 };
