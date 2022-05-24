@@ -20,6 +20,7 @@ private:
 	cargoType typeOfCargo;
 	int deliveryDistance;
 	int cost;
+	int priority;
 public:
 	Cargo()
 	{
@@ -30,6 +31,7 @@ public:
 		deliveryDistance = 0;
 		cost = 0;
 		ID = 0;
+		priority = 0;
 	}
 	Cargo(Time prepTime, Time loadTime, cargoType type, int dist, int cst, int id)
 	{
@@ -39,6 +41,7 @@ public:
 		deliveryDistance = dist;
 		cost = cst;
 		ID = id;
+		priority = 0;
 	}
 	void setPreparationTime(Time t)
 	{
@@ -117,6 +120,25 @@ public:
 	bool is_loaded()
 	{
 		return true;
+	}
+	int getPriority()
+	{
+		return priority;
+	}
+	void setPriority(int pri)
+	{
+		priority = pri;
+	}
+	Time calculateWaitTime()
+	{
+		// this should be in class cargo
+		//Preparation time is the time the cargo is created using the preparation event
+		//Move time is the time the truck starts to move which is in phase 2
+	}
+	Time calculateCargoDeliveryTime()
+	{
+		// this should be in class cargo
+		// move time + cargo distance/truck speed + cargo load and unload time
 	}
 	void setTruckID(int TID) {
 		TruckID = TID;

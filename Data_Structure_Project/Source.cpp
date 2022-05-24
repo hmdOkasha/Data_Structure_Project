@@ -78,6 +78,28 @@ int main()
 	inFile >> journeyCount >> maintTimeNormal >> maintTimeSpecial >> maintTimeVIP; //get maintenance info
 	inFile >> autoPromotion >> maxWaitTime;//get autoP & maxW
 
+
+	// Initialize Trucks
+	for(int i = 0; i < normalCount; i++)
+	{
+		NormalTrucks* nt;
+		nt = new NormalTrucks(i+1, Normal_Truck, normalCapacity, maintTimeNormal, normalSpeed);
+		com->normalTrucks.enqueue(nt);
+	}
+	for (int i = 0; i < specialCount; i++)
+	{
+		SpecialTrucks* st;
+		st = new SpecialTrucks(i+1, Special_Truck, specialCapacity, maintTimeSpecial, specialSpeed);
+		com->specialTrucks.enqueue(st);
+	}
+	for (int i = 0; i < VIPCount; i++)
+	{
+		VIPTrucks* vt;
+		vt = new VIPTrucks(i+1, VIP_Truck, VIPCapacity, maintTimeVIP, VIPspeed);
+		com->vipTrucks.enqueue(vt);
+	}
+
+
 	inFile >> eventNum;
 
 	for (int i = 0; i < eventNum; i++)
@@ -131,11 +153,11 @@ int main()
 			// do nothing and let time pass
 		}
 		
-		if (simTime->getHour() != 1 && (simTime->getHour() - 1) % 5 == 0)
+	/*	if (simTime->getHour() != 1 && (simTime->getHour() - 1) % 5 == 0)
 		{
 			if (!com->waitingNormalCargo.isEmpty() || !com->waitingSpecialCargo.isEmpty() || !com->waitingVIPCargo.isEmpty())
 			com->moveToDelivered();
-		}
+		}*/
 
 		ui->printCurrentTime(simTime);
 		ui->outputCargos(com, "Waiting Cargos : ", true);
