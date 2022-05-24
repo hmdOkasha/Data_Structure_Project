@@ -2,13 +2,15 @@
 #include "Time.h"
 #include "Cargo.h"
 #include "Trucks.h"
+#include "SpecialTrucks.h"
+#include "NormalTrucks.h"
+#include "VIPTrucks.h"
 #include "LinkedQueue.h"
 
 class Company
 {
 private:
 	int VIPpriority;
-	Time deliveryInterval;
 	int furthestCargoDistance;
 	Time cargoWaitTime;
 	Time cargoDeliveryTime;
@@ -26,21 +28,25 @@ public:
 	LinkedQueue<Cargo*> cancelledCargo= LinkedQueue<Cargo*>();
 
 	//truck list initialization
+	LinkedQueue<NormalTrucks*> normalTrucks = LinkedQueue<NormalTrucks*>();
+	LinkedQueue<VIPTrucks*> vipTrucks = LinkedQueue<VIPTrucks*>();
+	LinkedQueue<SpecialTrucks*> specialTrucks = LinkedQueue<SpecialTrucks*>();
+
+	
 	Time calculateDeliveryInterval()
 	{
 		//furthest cargo / truck speed + Truck capacity*load unload time + return time
 	}
-	int calculateFurthestCargo()
-	{
-		//traverse the queue comparing cargo.distance and returning a furthest distance
-	}
+	
 	Time calculateWaitTime()
 	{
+		// this should be in class cargo
 		//Preparation time is the time the cargo is created using the preparation event
 		//Move time is the time the truck starts to move which is in phase 2
 	}
 	Time calculateCargoDeliveryTime()
 	{
+		// this should be in class cargo
 		// move time + cargo distance/truck speed + cargo load and unload time
 	}
 	int calculateTruckUtilization()
