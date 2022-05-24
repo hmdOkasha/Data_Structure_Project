@@ -1,4 +1,5 @@
 #pragma once
+#include<fstream>
 #include "Time.h"
 #include "Cargo.h"
 #include "Trucks.h"
@@ -24,6 +25,7 @@ public:
 	LinkedQueue<Cargo*> deliveredSpecialCargo= LinkedQueue<Cargo*>();
 	LinkedQueue<Cargo*> deliveredVIPCargo= LinkedQueue<Cargo*>();
 	LinkedQueue<Cargo*> cancelledCargo= LinkedQueue<Cargo*>();
+	LinkedQueue<Cargo*> deliveredCargos;
 
 	//truck list initialization
 	Time calculateDeliveryInterval()
@@ -75,4 +77,18 @@ public:
 			deliveredVIPCargo.enqueue(c3);
 		}
 	}
+
+	void outputFile(ofstream& outfile) {
+		outfile << "CDT  CID  PT  WT  TID" << endl;
+		int M = deliveredCargos.QueueCount();
+		Cargo* x;
+		while (deliveredCargos.dequeue(x)) {
+			int PT = x->getIntPT();
+			int CID = x->getID();
+			Time WT = x->getwaitTime();
+
+		}
+	}
+
+
 };

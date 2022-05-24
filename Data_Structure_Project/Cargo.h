@@ -13,8 +13,10 @@ class Cargo
 {
 private:
 	int ID;
+	int TruckID;
 	Time preparationTime;
 	Time loadAndUnloadTime;
+	Time movetime;
 	cargoType typeOfCargo;
 	int deliveryDistance;
 	int cost;
@@ -23,6 +25,7 @@ public:
 	{
 		preparationTime.setTime(0, 0);
 		loadAndUnloadTime.setTime(0, 0);
+		movetime.setTime(0, 0);
 		typeOfCargo = Normal_Cargo;
 		deliveryDistance = 0;
 		cost = 0;
@@ -46,6 +49,19 @@ public:
 	{
 		loadAndUnloadTime = t;
 	}
+	void setmoveTime(Time t) {
+		movetime = t;
+	}
+	Time getwaitTime() {
+		Time WT;
+		WT = movetime - preparationTime;
+		return WT;
+	}
+	Time getcargodeliveryTime() {
+		Time CDT;
+		Time sum = getwaitTime() + movetime;
+		//int hour=deliveryDistance/
+	}
 	void setTypeOfCargo(cargoType type)
 	{
 		typeOfCargo = type;	
@@ -66,6 +82,9 @@ public:
 	Time getPreparationTime()
 	{
 		return preparationTime;
+	}
+	Time getmoveTime() {
+		return movetime;
 	}
 	int getIntPT()
 	{
@@ -98,5 +117,11 @@ public:
 	bool is_loaded()
 	{
 		return true;
+	}
+	void setTruckID(int TID) {
+		TruckID = TID;
+	}
+	int getTruckID() {
+		return TruckID;
 	}
 };
