@@ -1,4 +1,5 @@
 #pragma once
+#include "LinkedQueue.h"
 #include "Trucks.h"
 class NormalTrucks : public Trucks
 {
@@ -8,18 +9,22 @@ private:
 	Time maintenanceTime;
 	int speed;
 	Time deliveryInterval;
+	LinkedQueue<Cargo*> loadedNormalCargo = LinkedQueue<Cargo*>();
+
 
 public:
 	NormalTrucks()
 	{
+		setID(0);
 		typeOfTruck = Normal_Truck;
 		truckCapacity = 0;
 		maintenanceTime.setTime(0 ,0);
 		speed = 0;
 		deliveryInterval.setTime(0,0);
 	}
-	NormalTrucks(TruckType TT, int TC, Time MT, int Speed, Time DI)
+	NormalTrucks(int id, TruckType TT, int TC, Time MT, int Speed, Time DI)
 	{
+		setID(id);
 		typeOfTruck = TT;
 		truckCapacity = TC;
 		maintenanceTime = MT;
@@ -61,7 +66,7 @@ public:
 	}
 	int getIntMT()
 	{
-		return maintenanceTime.toInt(maintenanceTime);
+		return maintenanceTime.toInt();
 	}
 	int getSpeed()
 	{
@@ -73,7 +78,7 @@ public:
 	}
 	int getIntDI()
 	{
-		return deliveryInterval.toInt(deliveryInterval);
+		return deliveryInterval.toInt();
 	}
 };
 

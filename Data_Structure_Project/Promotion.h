@@ -1,27 +1,41 @@
 #pragma once
-#include <iostream>
 #include "Events.h"
-#include "company.h"
 #include "Cargo.h"
-#include "Time.h"
-#include "QueueADT.h"
-#include "PriorityQ.h"
-#include "PriorityQueue.h"
 #include "LinkedQueue.h"
-using namespace std;
-class Promotion:Events
+
+class Promotion : public Events
 {
-	Time Execute()
-	{}
-	Time Execute(LinkedQueue<Cargo>normal, LinkedQueue<Cargo>VIP, Time event_time)
+private:
+
+	int ExtraMoney;
+
+public:
+	Promotion(int id, const Time& event_time, Company* company, int extra_money)
+		: Events(id, event_time, company),
+		ExtraMoney(extra_money)
 	{
-		Cargo c;
-		normal.peek(c);
-		if (c.getTypeOfCargo() == Normal_Cargo)
+	}
+
+	void Execute()
+	{
+		Cargo* c;
+		if (!getCompany()->waitingNormalCargo.isEmpty())
 		{
-			VIP.enqueue(c);
-			normal.dequeue(c);
-			return event_time;
+			getCompany()->waitingNormalCargo.peek(c);
+			getCompany()->waitingVIPCargo.enqueue(c);
+			getCompany()->waitingNormalCargo.dequeue(c);
 		}
 	}
+
+	
+	int getExtraMoney() const
+	{
+		return ExtraMoney;
+	}
+
+	void setExtraMoney(int extra_money)
+	{
+		ExtraMoney = extra_money;
+	}
+
 };

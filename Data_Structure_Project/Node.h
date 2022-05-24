@@ -58,6 +58,7 @@ T Node<T>::getItem() const
 template < typename T>
 Node<T>* Node<T>::getNext() const
 {
+
 	return next;
 }
 

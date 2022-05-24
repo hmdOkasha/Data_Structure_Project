@@ -11,12 +11,12 @@ private:
 public:
     Time(int d = 0, int h = 0);
     void setTime(int d = 0, int h = 0);
-    int getDay(Time t);
-    int getHour(Time t);
+    int getDay();
+    int getHour();
     bool equals(Time);
-    int toInt(Time time);
+    int toInt();
     Time toTime(int t);
-    void printTime(Time CT);
+    void printTime();
 };
 
 Time::Time(int d, int h)
@@ -28,7 +28,17 @@ Time::Time(int d, int h)
 void Time::setTime(int d, int h)
 {
     day = d;
+	if (h >= 0 && h < 24)
     hour = h;
+    else if (h >= 24)
+    {
+        while (h >= 24)
+        {
+            day++;
+            h = h - 24;
+            hour = h;
+        }
+    }
 }
 
 bool Time::equals(Time otherTime)
@@ -40,11 +50,9 @@ bool Time::equals(Time otherTime)
         return false;
 }
 
-int Time::toInt(Time time)
+int Time::toInt()
 {
-    int changed;
-    changed = 24 * time.day + time.hour;
-    return changed;
+	return 24 * day + hour;
 }
 
 Time Time::toTime(int t)
@@ -54,16 +62,16 @@ Time Time::toTime(int t)
     newTime.hour = t % 24;
     return newTime;
 }
-void Time::printTime(Time CT)
+void Time::printTime()
 {
-    cout <<"Current Time (Day:Hour) :" << "(" << CT.day << ":" << CT.hour << ")";
+    cout <<"Current Time (Day:Hour) :" << "(" << day << ":" << hour << ")";
 }
 
-int Time::getDay(Time t)
+int Time::getDay()
 {
-    return t.day;
+    return day;
 }
-int Time::getHour(Time t)
+int Time::getHour()
 {
-    return t.hour;
+    return hour;
 }

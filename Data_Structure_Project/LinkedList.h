@@ -57,6 +57,24 @@ public:
 		Head = R;
 	}
 
+	bool insertEnd(T& data)
+	{
+		Node<T>* N = new Node<T> (data);
+		N->setNext() = NULL;
+		if (Head == NULL)
+			Head = N;
+		else
+		{
+			Node<T>* temp = Head;
+
+			while (temp->getNext())
+			{
+				temp->getNext();
+			}
+			temp->getNext() = N;
+		}
+		
+	}
 	/*
 	* Function: DeleteAll.
 	* Deletes all nodes of the list.

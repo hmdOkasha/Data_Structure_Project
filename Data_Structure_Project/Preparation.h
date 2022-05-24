@@ -1,30 +1,117 @@
 #pragma once
 #include<iostream>
-#pragma once
 #include "Events.h"
-#include "company.h"
+#include "Company.h"
 #include "Cargo.h"
 #include "Time.h"
-#include "QueueADT.h"
-#include "PriorityQ.h"
 #include "LinkedQueue.h"
+
 using namespace std;
-class Preparation :Events
+class Preparation : public Events
 {
+private:
+
+	char Type;
+	int Distance;
+	Time LoadTime;
+	int Cost;
+
 public:
-	Time Execute()
-	{}
-	Time Execute(LinkedQueue<Cargo>waiting_list,Time P_T, Time L_T , cargoType c_t , int dist, int cost, Time event_time)
+	Preparation(int id, const Time& event_time, Company* company, char type, int distance, const Time& load_time,
+		int cost)
+		: Events(id, event_time, company),
+		Type(type),
+		Distance(distance),
+		LoadTime(load_time),
+		Cost(cost)
 	{
-		Cargo c;
-		c.setCost(cost);
-		c.setDeliveryDistance(dist);
-		c.setLoadAndUnloadTime(L_T);
-		c.setPreparationTime(P_T);
-		c.setTypeOfCargo(c_t);
-		c.setID(waiting_list.QueueCount(waiting_list) + 1);
-		waiting_list.enqueue(c);
-		return event_time;
 	}
 
+	void Execute()
+	{
+		
+		Cargo* c;
+		if (Type == 'N')
+			c = new Cargo(getTime(), LoadTime, Normal_Cargo, Distance, Cost, getID());
+		else if (Type == 'V')
+			c = new Cargo(getTime(), LoadTime, VIP_Cargo, Distance, Cost, getID());
+		else
+			c = new Cargo(getTime(), LoadTime, Special_Cargo, Distance, Cost, getID());
+		if (Type == 'N')
+			getCompany()->waitingNormalCargo.enqueue(c);
+		else if (Type == 'S')
+			getCompany()->waitingSpecialCargo.enqueue(c);
+		else
+			getCompany()->waitingVIPCargo.enqueue(c);
+	}
+
+	/*void Execute(LinkedQueue<Cargo*>* waiting_list_normal, LinkedQueue<Cargo*>* waiting_list_special, LinkedQueue<Cargo*>* waiting_list_vip, Time P_T, Time L_T, char c_t, int id, int dist, int cost)
+	{
+		Cargo* c;
+		if (c_t == 'N')
+			c = new Cargo(P_T, L_T, Normal_Cargo, dist, cost, id);
+		else if (c_t == 'V')
+			c = new Cargo(P_T, L_T, VIP_Cargo, dist, cost, id);
+		else
+			c = new Cargo(P_T, L_T, Special_Cargo, dist, cost, id);
+		if (c_t == 'N')
+			waiting_list_normal->enqueue(c);
+		else if (c_t == 'S')
+			waiting_list_special->enqueue(c);
+		else
+			waiting_list_vip->enqueue(c);
+	}*/
+
+	char getType();
+	void setType(char type);
+
+	int getDistance();
+	void setDistance(int distance);
+
+	Time getLoadTime();
+	void setLoadTime(Time loadTime);
+
+	int getCost();
+	void setCost(int cost);
 };
+
+inline char Preparation::getType()
+{
+	return Type;
+}
+
+inline void Preparation::setType(char type)
+{
+	Type = type;
+}
+
+inline int Preparation::getDistance()
+{
+	return Distance;
+}
+
+inline void Preparation::setDistance(int distance)
+{
+	Distance = distance;
+}
+
+inline Time Preparation::getLoadTime()
+{
+	return LoadTime;
+}
+
+inline void Preparation::setLoadTime(Time loadTime)
+{
+	LoadTime = loadTime;
+}
+
+inline int Preparation::getCost()
+{
+	return Cost;
+}
+
+inline void Preparation::setCost(int cost)
+{
+	Cost = cost;
+}
+#pragma once

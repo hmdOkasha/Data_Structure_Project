@@ -1,26 +1,40 @@
 #pragma once
 #include <iostream>
 #include "Events.h"
-#include "company.h"
+#include "Company.h"
 #include "Cargo.h"
 #include "Time.h"
 #include "QueueADT.h"
 #include "PriorityQ.h"
 #include "LinkedQueue.h"
 using namespace std;
-class Cancellation
+class Cancellation : public Events
 {
-	Time Execute()
-	{}
-	Time Execute(LinkedQueue<Cargo>delivered, LinkedQueue<Cargo>cancelled, Time event_time)
+public:
+	Cancellation(int id, const Time& event_time, Company* company)
+		: Events(id, event_time, company)
 	{
-		Cargo c;
-		if (!delivered.isEmpty() && c.getTypeOfCargo() == Normal_Cargo)
+	}
+
+	void Execute()
+	{
+		Cargo* c = new Cargo;
+		if (!getCompany()->waitingNormalCargo.isEmpty())
 		{
-			delivered.peek(c);
-			cancelled.enqueue(c);
-			delivered.dequeue(c);
-			return event_time;
+			getCompany()->waitingNormalCargo.peek(c);
+			getCompany()->cancelledCargo.enqueue(c);
+			getCompany()->waitingNormalCargo.dequeue(c);
 		}
 	}
+
+	/*void Execute(LinkedQueue<Cargo*>* delivered_normal, LinkedQueue<Cargo*>* cancelled_normal)
+	{
+		Cargo* c = new Cargo;
+		if (!delivered_normal->isEmpty() && c->getTypeOfCargo() == Normal_Cargo)
+		{
+			delivered_normal->peek(c);
+			cancelled_normal->enqueue(c);
+			delivered_normal->dequeue(c);
+		}
+	}*/
 };

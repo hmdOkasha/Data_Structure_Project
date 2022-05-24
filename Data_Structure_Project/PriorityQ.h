@@ -20,25 +20,26 @@ public:
 	bool enqueue(T* newEntry, const int& newKey)
 	{
 		//Creating the new node to be inserted 
-		Node<T>* temp = new Node<T>(newEntry, newKey);
-		Node<T>* ptr;
+		//Node<T>* temp = new Node<T>(newEntry, newKey);
+		//Node<T>* ptr;
 
-		//If the entry is in the first place or the list is empty
-		if (Head == NULL || (temp->getKey() < Head->getKey()))
-		{
-			temp->setNext(Head);
-			Head = temp;
-		}
-		//General Case
-		else
-		{
-			ptr = Head;
-			while (ptr->getNext() != NULL && ptr->getNext()->getKey() <= temp->getKey())
-				ptr = ptr->getNext();
+		////If the entry is in the first place or the list is empty
+		//if (Head == NULL || (temp->getKey() < Head->getKey()))
+		//{
+		//	temp->setNext(Head);
+		//	Head = temp;
+		//}
+		////General Case
+		//else
+		//{
+		//	ptr = Head;
+		//	while (ptr->getNext() != NULL && ptr->getNext()->getKey() <= temp->getKey())
+		//		ptr = ptr->getNext();
 
-			temp->setNext(ptr->getNext());
-			ptr->setNext(temp);
-		}
+		//	temp->setNext(ptr->getNext());
+		//	ptr->setNext(temp);
+		//}
+		//return true;
 		return true;
 	}
 

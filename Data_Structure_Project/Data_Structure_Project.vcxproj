@@ -148,9 +148,9 @@
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NormalTrucks.h" />
-    <ClInclude Include="PriorityNode.h" />
+    <ClInclude Include="PrioQNode.h" />
     <ClInclude Include="PriorityQ.h" />
-    <ClInclude Include="PriorityQueue.h" />
+    <ClInclude Include="PrioQ.h" />
     <ClInclude Include="Promotion.h" />
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="SpecialTrucks.h" />
@@ -158,6 +158,9 @@
     <ClInclude Include="Trucks.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="VIPTrucks.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

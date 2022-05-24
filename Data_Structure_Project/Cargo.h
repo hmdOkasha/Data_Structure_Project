@@ -69,7 +69,7 @@ public:
 	}
 	int getIntPT()
 	{
-		return preparationTime.toInt(preparationTime);
+		return preparationTime.toInt();
 	}
 	Time getLoadAndUnloadTime()
 	{
@@ -77,7 +77,7 @@ public:
 	}
 	int getIntLULT()
 	{
-		return loadAndUnloadTime.toInt(loadAndUnloadTime);
+		return loadAndUnloadTime.toInt();
 	}
 	cargoType getTypeOfCargo()
 	{

@@ -17,8 +17,8 @@ public:
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
-	void PrintQueue(LinkedQueue<T> Q);
-	int QueueCount(LinkedQueue<T> Q);
+	void PrintQueue();
+	int QueueCount();
 	~LinkedQueue();
 };
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -128,35 +128,48 @@ LinkedQueue<T>::~LinkedQueue()
 {
 	//Note that the cout statements here is just for learning purpose
 	//They should be normally removed from the destructor
-	cout << "\nStarting LinkedQueue destructor...";
-	cout << "\nFreeing all nodes in the queue...";
+	//cout << "\nStarting LinkedQueue destructor...";
+	//cout << "\nFreeing all nodes in the queue...";
 
 	//Free all nodes in the queue
 	T temp;
 	while (dequeue(temp));
 
-	cout << "\n Is LinkedQueue Empty now?? ==> " << boolalpha << isEmpty();
-	cout << "\nEnding LinkedQueue destructor..." << endl;
+	//cout << "\n Is LinkedQueue Empty now?? ==> " << boolalpha << isEmpty();
+	//cout << "\nEnding LinkedQueue destructor..." << endl;
 }
+
 template<typename T>
-void LinkedQueue<T>:: PrintQueue(LinkedQueue<T> Q)
+void LinkedQueue<T>:: PrintQueue()
 {
-	T K;
-	//cout << "\nQueue contents: ";
-	while (Q.dequeue(K)) {
-		if (Q.isEmpty())
-			cout << K << "";
+	Node<T>* current = frontPtr;
+	while (current)
+	{
+		if (!current->getNext())
+		{
+			//cout << "test" << endl;
+			cout << current->getItem()->getID() << "";
+		}
 		else
-			cout << K << ",";
+		{
+			//cout << "test" << endl;
+			cout << current->getItem()->getID() << ", ";
+		}
+		
+		current = current->getNext();
 	}
 }
+
 template <typename T>
-int LinkedQueue<T>::QueueCount(LinkedQueue<T> Q)
+int LinkedQueue<T>::QueueCount()
 {
-	int c = 0;
-	T x;
-	while (Q.dequeue(x))
-		c++;
-	return c;
+	Node<T>* current = frontPtr;
+	int count = 0;
+	while (current != NULL)
+	{
+		count++;
+		current = current->getNext();
+	}
+	return count;
 }
 #endif
