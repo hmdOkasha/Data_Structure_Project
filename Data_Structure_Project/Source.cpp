@@ -171,9 +171,9 @@ int main()
 			}*/
 
 		ui->printCurrentTime(simTime);
-		ui->outputCargos(com);
+		ui->outputCargos(com, "Waiting Cargos : ", true);
 		//
-		ui->outputDelCargos(com);
+		ui->outputDelCargos(com, "Delivered Cargos : ", false);
 
 
 		simTime->setTime(simTime->getDay(), simTime->getHour() + 1);
@@ -191,7 +191,7 @@ int main()
 				{
 					if (HN == countHN)
 					{
-						com->loadNormal();
+						com->loadNormal(VIPCapacity,normalCapacity);
 						cjNormal++;
 						countHN = 0;
 					}
@@ -208,7 +208,7 @@ int main()
 					}
 					if (DN == countDN)
 					{
-						com->loadNormal();
+						com->loadNormal(VIPCapacity,normalCapacity);
 						cjNormal++;
 						countDN = 0;
 						countHN = 0;
@@ -238,7 +238,7 @@ int main()
 				{
 					if (SH == countSH)
 					{
-						com->loadNormal();
+						com->loadSpecial(specialCapacity);
 						cjSpecial++;
 						countSH = 0;
 					}
@@ -255,7 +255,7 @@ int main()
 					}
 					if (SD == countSD)
 					{
-						com->loadNormal();
+						com->loadSpecial(specialCapacity);
 						cjSpecial++;
 						countSD = 0;
 						countSH = 0;
@@ -274,6 +274,7 @@ int main()
 			if (cjSpecial == 0)
 				bSpecial = true;
 		}
+
 		if (bVIP)
 		{
 			com->waitingVIPCargo.peek(cv);
@@ -285,7 +286,7 @@ int main()
 				{
 					if (VH == countVH)
 					{
-						com->loadNormal();
+						com->loadVIP(VIPCapacity,normalCapacity,specialCapacity);
 						cjVIP++;
 						countVH = 0;
 					}
@@ -302,7 +303,7 @@ int main()
 					}
 					if (VD == countVD)
 					{
-						com->loadNormal();
+						com->loadVIP(VIPCapacity,normalCapacity,specialCapacity);
 						cjVIP++;
 						countVD = 0;
 						countVH = 0;
@@ -322,7 +323,7 @@ int main()
 				bVIP = true;
 		}
 	}
-<<<<<<< HEAD
+
 	//if (type == 1)
 	//{
 	//	while (1)
@@ -356,8 +357,5 @@ int main()
 	//	//{
 	//	//	com->moveToDelivered(&waitingNormalCargo, &waitingSpecialCargo, &waitingVIPCargo, &deliveredNormalCargo, &deliveredSpecialCargo, &deliveredVIPCargo);
 	//	//}
-=======
-
->>>>>>> 6ee396e0611caf3d3672325303645bbc0fd01a4b
 
 }
