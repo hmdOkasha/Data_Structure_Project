@@ -11,7 +11,7 @@ using namespace std;
 class Cancellation : public Events
 {
 public:
-	Cancellation(int id, const Time& event_time, Company* company)
+	Cancellation(int id, Time& event_time, Company* company)
 		: Events(id, event_time, company)
 	{
 	}

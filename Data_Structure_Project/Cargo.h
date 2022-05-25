@@ -21,6 +21,7 @@ private:
 	int deliveryDistance;
 	int cost;
 	int priority;
+	bool isLoaded;
 public:
 	Cargo()
 	{
@@ -32,6 +33,7 @@ public:
 		cost = 0;
 		ID = 0;
 		priority = 0;
+		isLoaded = false;
 	}
 	Cargo(Time prepTime, Time loadTime, cargoType type, int dist, int cst, int id)
 	{
@@ -42,6 +44,11 @@ public:
 		cost = cst;
 		ID = id;
 		priority = 0;
+		isLoaded = false;
+
+
+
+
 	}
 	void setPreparationTime(Time t)
 	{
@@ -145,5 +152,13 @@ public:
 	}
 	int getTruckID() {
 		return TruckID;
+	}
+	void setIsLoaded(bool b)
+	{
+		isLoaded = b;
+	}
+	bool getIsLoaded()
+	{
+		return isLoaded;
 	}
 };
