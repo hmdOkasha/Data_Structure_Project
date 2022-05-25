@@ -168,53 +168,5 @@ int main()
 		simTime->setTime(simTime->getDay(), simTime->getHour() + 1);
 	}
 
-	//if (type == 1)
-	//{
-	//	while (1)
-	//	{
-	//		inFile >> eventType;
-	//		switch (eventType)
-	//		{
-	//		case ('R'):
-	//			inFile >> cargoType >> eventDay >> red >> eventHour >> ID >> distance >> loadTime >> cost;
-	//			eventTime.setTime(eventDay, eventHour);
-	//			if (eventTime.equals(*simTime))
-	//				p->Execute(&waitingNormalCargo, &waitingSpecialCargo, &waitingVIPCargo, eventTime, loadTime, cargoType, ID, distance, cost);
-	//		case('X'):
-	//			inFile >> eventDay >> red >> eventHour >> ID;
-	//			eventTime.setTime(eventDay, eventHour);
-	//			if (eventTime.equals(*simTime))
-	//				can->Execute(&deliveredNormalCargo, &cancelledCargo);
-	//		case ('P'):
-	//			inFile >> eventDay >> red >> eventHour >> ID >> extraCost;
-	//			eventTime.setTime(eventDay, eventHour);
-	//			if (eventTime.equals(*simTime))
-	//				pr->Execute(&waitingNormalCargo, &waitingVIPCargo);
-	//		}
-	//		ui->getUserInput();
-	//		simTime->setTime(simTime->getDay(), simTime->getHour() + 1);
-	//		ui->printCurrentTime(simTime);
-	//		ui->outputCargos(waitingNormalCargo, waitingSpecialCargo, waitingVIPCargo, "Waiting Cargos : ", true);
-	//		ui->outputCargos(deliveredNormalCargo, deliveredSpecialCargo, deliveredVIPCargo, "Delivered Cargos : ", false);
-	//	}
-	//	//while (simTime->getHour()  != 1 && (simTime->getHour() - 1) % 5 == 0)
-	//	//{
-	//	//	com->moveToDelivered(&waitingNormalCargo, &waitingSpecialCargo, &waitingVIPCargo, &deliveredNormalCargo, &deliveredSpecialCargo, &deliveredVIPCargo);
-	//	//}
 
-
-	//}
-	//else if (type == 2)
-	//{
-	//	char temp;
-	//	cout << "wait for phase 2 :)";
-	//	cin >> temp;
-
-	//}
-	//else if (type == 3)
-	//{
-	//	char temp;
-	//	cout << "wait for phase 2 :(";
-	//	cin >> temp;
-	//}
 }

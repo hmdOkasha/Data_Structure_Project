@@ -15,7 +15,7 @@ private:
 	Time cargoWaitTime;
 	Time cargoDeliveryTime;
 	int truckUtilization;
-	int noLoadingTrucks;
+	int numLoadingTrucks;
 
 public:
 
@@ -91,7 +91,7 @@ public:
 			return false;
 
 		//If more than 3 trucks are being loaded
-		if (noLoadingTrucks >= 3)
+		if (numLoadingTrucks >= 3)
 			return false;
 
 		return h;
@@ -103,5 +103,10 @@ public:
 			return true;
 		else
 			return false;
+	}
+
+	void setNumLoadingTrucks()
+	{
+		
 	}
 };

@@ -181,30 +181,30 @@ public:
 		return 0;
 	}
 
-	int getHighestPriID()
-	{
-		//VIPpriority = (max distance / cargo distance) * 100 + (2 * cost / max cost) * 100 + (min prep time / prep time) * 100
-		Cargo* c;
-		int cargoPriority;
-		int maxPri = 0;
-		int idMaxPri;
-		if (!loadedVIPCargo.isEmpty())
-		{
-			for (int i = 0; i < truckCapacity; i++)
-			{
-				loadedVIPCargo.dequeue(c);
-				cargoPriority = (furthestCargoDist / c->getDeliveryDistance()) * 100 + 2 * (c->getCost() / highestCost) + (minPrepTime() / c->getIntPT());
-				c->setPriority(cargoPriority);
-				if (cargoPriority > maxPri)
-				{
-					maxPri = cargoPriority;
-					idMaxPri = c->getID();
-				}
-				loadedVIPCargo.enqueue(c);
-			}
-		}
-		return idMaxPri;
-	}
+	//int getHighestPriID()
+	//{
+	//	//VIPpriority = (max distance / cargo distance) * 100 + (2 * cost / max cost) * 100 + (min prep time / prep time) * 100
+	//	Cargo* c;
+	//	int cargoPriority;
+	//	int maxPri = 0;
+	//	int idMaxPri;
+	//	if (!loadedVIPCargo.isEmpty())
+	//	{
+	//		for (int i = 0; i < truckCapacity; i++)
+	//		{
+	//			loadedVIPCargo.dequeue(c);
+	//			cargoPriority = (furthestCargoDist / c->getDeliveryDistance()) * 100 + 2 * (c->getCost() / highestCost) + (minPrepTime() / c->getIntPT());
+	//			c->setPriority(cargoPriority);
+	//			if (cargoPriority > maxPri)
+	//			{
+	//				maxPri = cargoPriority;
+	//				idMaxPri = c->getID();
+	//			}
+	//			loadedVIPCargo.enqueue(c);
+	//		}
+	//	}
+	//	return idMaxPri;
+	//}
 
 };
 
