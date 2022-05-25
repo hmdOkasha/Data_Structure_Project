@@ -181,7 +181,6 @@ public:
 
 
 	}
-<<<<<<< HEAD
 
 	void loadVIP()
 	{
@@ -289,6 +288,4 @@ public:
 		}
 		
 	}
-=======
->>>>>>> 6ee396e0611caf3d3672325303645bbc0fd01a4b
 };
