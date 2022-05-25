@@ -59,12 +59,12 @@ public:
 		cout << "Current Time (Day:Hour) :" << "(" << CT->getDay() << ":" << CT->getHour() << ")" << endl;
 	}
 
-	void outputCargos(Company *company, string message, bool flag)
-	{		
+	void outputCargos(Company* company)
+	{
 		int ncount = company->waitingNormalCargo.QueueCount();
 		int scount = company->waitingSpecialCargo.QueueCount();
 		int VIPcount = company->waitingVIPCargo.QueueCount();
-		cout << ncount + scount + VIPcount << " " << message << ": ";
+		cout << ncount + scount + VIPcount << " " << "Waiting Cargos" << ": ";
 		cout << "[";
 		company->waitingNormalCargo.PrintQueue();
 		cout << "] ";
@@ -74,18 +74,16 @@ public:
 		cout << "{";
 		company->waitingVIPCargo.PrintQueue();
 		cout << "}" << endl;
-		if (flag) {
-			cout << "----------------------------------------------------" << endl;
-		}
+		cout << "----------------------------------------------------" << endl;
 	}
 
 
-	void outputDelCargos(Company* company, string message, bool flag)
+	void outputDelCargos(Company* company)
 	{
 		int ncount = company->deliveredNormalCargo.QueueCount();
 		int scount = company->deliveredSpecialCargo.QueueCount();
 		int VIPcount = company->deliveredVIPCargo.QueueCount();
-		cout << ncount + scount + VIPcount << " " << message << ": ";
+		cout << ncount + scount + VIPcount << " " << "Delivered Cargos" << ": ";
 		cout << "[";
 		company->deliveredNormalCargo.PrintQueue();
 		cout << "] ";
@@ -95,9 +93,7 @@ public:
 		cout << "{";
 		company->deliveredVIPCargo.PrintQueue();
 		cout << "}" << endl;
-		if (flag) {
-			cout << "----------------------------------------------------" << endl;
-		}
+		cout << "----------------------------------------------------" << endl;
 	}
 
 	void getUserInput()
@@ -116,25 +112,58 @@ public:
 
 		return input;
 	}
+
+	void outputEmptyTrucks(Company* company) {
+		int ntcount = company->normalTrucks.QueueCount();
+		int viptcount = company->vipTrucks.QueueCount();
+		int stcount = company->specialTrucks.QueueCount();
+		cout << stcount + viptcount + stcount << "EmptyTrucks: ";
+		cout << "[";
+		company->normalTrucks.PrintQueue();
+		cout << "]";
+		cout << "(";
+		company->specialTrucks.PrintQueue();
+		cout << ")";
+		cout << "{";
+		company->vipTrucks.PrintQueue();
+		cout << "}";
+	}
+
+	/*void movingtrucks(Company* company) {
+		Trucks* x;
+		while (company->movingTrucks.dequeue(x))
+		cout << x->getID() << "[" <<
+		while (company->specialTrucks.peek(z)) {
+			if (z->loadedSpecialCargo.isEmpty())
+				cout << "(" << z->getID() << ")";
+		}
+		while (company->vipTrucks.peek(y)) {
+			if (y->loadedVIPCargo.isEmpty())
+				cout << "{" << y->getID() << "}";
+		}
+		cout << endl;
+	}
+	*/
+
 };
 
 #pragma once
 
-	//void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, LinkedQueue<Cargo*>VIP, string message, bool flag) {
-	//	int ncount = normal.QueueCount();
-	//	int scount = special.QueueCount();
-	//	int VIPcount = VIP.QueueCount();
-	//	cout << ncount + scount + VIPcount << " " << message << ": ";
-	//	cout << "[";
-	//	normal.PrintQueue();
-	//	cout << "] ";
-	//	cout << "(";
-	//	special.PrintQueue();
-	//	cout << ") ";
-	//	cout << "{";
-	//	VIP.PrintQueue();
-	//	cout << "}" << endl;
-	//	if (flag) {
-	//		cout << "----------------------------------------------------" << endl;
-	//	}
-	//}
+//void outputCargos(LinkedQueue<Cargo*>normal, LinkedQueue<Cargo*>special, LinkedQueue<Cargo*>VIP, string message, bool flag) {
+//	int ncount = normal.QueueCount();
+//	int scount = special.QueueCount();
+//	int VIPcount = VIP.QueueCount();
+//	cout << ncount + scount + VIPcount << " " << message << ": ";
+//	cout << "[";
+//	normal.PrintQueue();
+//	cout << "] ";
+//	cout << "(";
+//	special.PrintQueue();
+//	cout << ") ";
+//	cout << "{";
+//	VIP.PrintQueue();
+//	cout << "}" << endl;
+//	if (flag) {
+//		cout << "----------------------------------------------------" << endl;
+//	}
+//}

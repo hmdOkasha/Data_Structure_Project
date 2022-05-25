@@ -18,6 +18,48 @@ private:
 	int truckUtilization;
 	int noLoadingTrucks;
 
+	//input file variables:
+		//first line
+	int normalCount;
+	int specialCount;
+	int VIPCount;
+
+	//second line
+	int normalSpeed;
+	int specialSpeed;
+	int VIPspeed;
+
+	//third line
+	int normalCapacity;
+	int specialCapacity;
+	int VIPCapacity;
+
+	//fourth line
+	int journeyCount;
+	int maintTimeNormal;
+	int maintTimeSpecial;
+	int maintTimeVIP;
+
+	//fifth line
+	int autoPromotion;
+	int maxWaitTime;
+
+	//event info
+	int eventNum;
+
+	//ready event line
+	char eventType;
+	char cargoType;
+	Time eventTime;
+	int eventDay;
+	int eventHour;
+	char red;
+	int ID;
+	int distance;
+	int loadTime;
+	int cost;
+	int extraCost;
+
 public:
 
 	//cargo list initialization
@@ -34,8 +76,8 @@ public:
 	LinkedQueue<NormalTrucks*> normalTrucks = LinkedQueue<NormalTrucks*>();
 	LinkedQueue<VIPTrucks*> vipTrucks = LinkedQueue<VIPTrucks*>();
 	LinkedQueue<SpecialTrucks*> specialTrucks = LinkedQueue<SpecialTrucks*>();
+	LinkedQueue<Trucks*> movingTrucks = LinkedQueue<Trucks*>();
 
-	
 	int calculateTruckUtilization()
 	{
 		//total cargos delivered/(truck capacity*total delivery journeys) * (total truck active time/total sim time)
@@ -111,12 +153,28 @@ public:
 		outfile << "CDT  CID  PT  WT  TID" << endl;
 		int M = deliveredCargos.QueueCount();
 		Cargo* x;
+		int sumWT = 0;
+		int cWT = 0;
+		int avgWT;
+		Time avgT, T;
 		while (deliveredCargos.dequeue(x)) {
-			int PT = x->getIntPT();
+			Time PT = x->getPreparationTime();
 			int CID = x->getID();
 			Time WT = x->getwaitTime();
-
+			int TID = x->getTruckID();
+			sumWT += WT.toInt();
+			cWT++;
+			avgWT = sumWT / cWT;
+			outfile << " " << "  " << CID << "  " << PT.getDay() << ":" << PT.getHour() << "  ";
+			outfile << WT.getDay() << ":" << WT.getHour() << "  " << TID << endl;
 		}
+		T = avgT.toTime(avgWT);
+		outfile << "Cargos:" << deliveredCargos.QueueCount() << endl;
+		outfile << "Cargo Avg Wait = " << T.getDay() << ":" << T.getHour() << endl;
+
+		outfile << "Trucks: " << normalCount + specialCount + VIPCount << "[N: " << normalCount << ", S: " << specialCount << ",V: " << VIPCount << "]" << endl;
+
+
 	}
 
 

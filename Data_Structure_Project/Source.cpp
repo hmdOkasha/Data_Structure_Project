@@ -160,9 +160,9 @@ int main()
 		}*/
 
 		ui->printCurrentTime(simTime);
-		ui->outputCargos(com, "Waiting Cargos : ", true);
+		ui->outputCargos(com);
 		//
-		ui->outputDelCargos(com, "Delivered Cargos : ", false);
+		ui->outputDelCargos(com);
 
 
 		simTime->setTime(simTime->getDay(), simTime->getHour() + 1);
