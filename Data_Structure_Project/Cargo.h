@@ -21,6 +21,7 @@ private:
 	int deliveryDistance;
 	int cost;
 	int priority;
+	bool isLoaded;
 public:
 	Cargo()
 	{
@@ -32,6 +33,7 @@ public:
 		cost = 0;
 		ID = 0;
 		priority = 0;
+		isLoaded = false;
 	}
 	Cargo(Time prepTime, Time loadTime, cargoType type, int dist, int cst, int id)
 	{
@@ -41,7 +43,16 @@ public:
 		deliveryDistance = dist;
 		cost = cst;
 		ID = id;
+<<<<<<< HEAD
 		priority = 0;
+		isLoaded = false;
+
+
+
+
+=======
+		priority = calculatePriority();
+>>>>>>> 6ee396e0611caf3d3672325303645bbc0fd01a4b
 	}
 	void setPreparationTime(Time t)
 	{
@@ -121,14 +132,20 @@ public:
 	{
 		return true;
 	}
-	int getPriority()
+	int calculatePriority()
 	{
+		if (typeOfCargo == Normal_Cargo || typeOfCargo == Special_Cargo)
+		{
+			priority = 0;
+		}
+		else
+		{
+			priority = (2 * cost) / deliveryDistance + 3 * preparationTime.toInt();
+		}
 		return priority;
 	}
-	void setPriority(int pri)
-	{
-		priority = pri;
-	}
+
+
 	Time calculateWaitTime()
 	{
 		// this should be in class cargo
@@ -145,5 +162,13 @@ public:
 	}
 	int getTruckID() {
 		return TruckID;
+	}
+	void setIsLoaded(bool b)
+	{
+		isLoaded = b;
+	}
+	bool getIsLoaded()
+	{
+		return isLoaded;
 	}
 };

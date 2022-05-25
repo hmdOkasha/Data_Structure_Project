@@ -16,7 +16,7 @@ private:
 	Time cargoWaitTime;
 	Time cargoDeliveryTime;
 	int truckUtilization;
-	int noLoadingTrucks;
+	int numLoadingTrucks;
 
 	//input file variables:
 		//first line
@@ -135,7 +135,7 @@ public:
 			return false;
 
 		//If more than 3 trucks are being loaded
-		if (noLoadingTrucks >= 3)
+		if (numLoadingTrucks >= 3)
 			return false;
 
 		return h;
@@ -148,7 +148,12 @@ public:
 		else
 			return false;
 	}
-
+	
+	void setNumLoadingTrucks()
+	{
+		
+	}
+	
 	void outputFile(ofstream& outfile) {
 		outfile << "CDT  CID  PT  WT  TID" << endl;
 		int M = deliveredCargos.QueueCount();
@@ -176,6 +181,114 @@ public:
 
 
 	}
+<<<<<<< HEAD
+
+	void loadVIP()
+	{
+		if (canLoad() == true)
+		{
+			Cargo* c;
+			waitingVIPCargo.peek(c);
+			if (c->getIsLoaded() == false)
+			{
+				if (!vipTrucks.isEmpty())
+				{
+					VIPTrucks* vTruck;
+					vipTrucks.peek(vTruck);
+					waitingVIPCargo.dequeue(c);
+					(vTruck->loadedVIPCargo).enqueue(c);
+
+					noLoadingTrucks++;
+				}
+				else if (!normalTrucks.isEmpty())
+				{
+					NormalTrucks* nTruck;
+					normalTrucks.peek(nTruck);
+					waitingVIPCargo.dequeue(c);
+					(nTruck->loadedNormalCargo).enqueue(c);
+					noLoadingTrucks++;
+				}
+				else if (!specialTrucks.isEmpty())
+				{
+					SpecialTrucks* sTruck;
+					specialTrucks.peek(sTruck);
+					waitingVIPCargo.dequeue(c);
+					(sTruck->loadedSpecialCargo).enqueue(c);
+					noLoadingTrucks++;
+				}
+			}
+		}
+	}
+	void loadNormal()
+	{
+		if (canLoad() == true)
+		{
+			Cargo* c;
+			waitingNormalCargo.peek(c);
+			if (c->getIsLoaded() == false)
+			{
+				if (!normalTrucks.isEmpty())
+				{
+					NormalTrucks* nTruck;
+					normalTrucks.peek(nTruck);
+					waitingVIPCargo.dequeue(c);
+					(nTruck->loadedNormalCargo).enqueue(c);
+					noLoadingTrucks++;
+				}
+
+				else if (!vipTrucks.isEmpty())
+				{
+					VIPTrucks* vTruck;
+					vipTrucks.peek(vTruck);
+					waitingVIPCargo.dequeue(c);
+					(vTruck->loadedVIPCargo).enqueue(c);
+					noLoadingTrucks++;
+				}
+			}
+
+		}
+	}
+	void loadSpecial()
+	{
+		if (canLoad() == true)
+		{
+			Cargo* c;
+			waitingSpecialCargo.peek(c);
+			if (!specialTrucks.isEmpty() && c->getIsLoaded() == false)
+			{
+				SpecialTrucks* sTruck;
+				specialTrucks.peek(sTruck);
+				waitingVIPCargo.dequeue(c);
+				(sTruck->loadedSpecialCargo).enqueue(c);
+				noLoadingTrucks++;
+			}
+		}
+	}
 
 
+	void cancelnormalcargo(int id, Time& etime,Events* can)
+	{
+		Cargo* c;
+		waitingNormalCargo.peek(c);
+		if (c->getIsLoaded() == false)
+		{
+			can = new Cancellation(id, etime, this);
+			can->Execute();
+		}
+		
+	}
+	void autoPoromtion(Time& eTime, Events* p)
+	{
+		Cargo* c;
+		waitingNormalCargo.peek(c);
+		if (c->getLoadAndUnloadTime() + 20 == eTime)
+		{
+			p = new Promotion(c->getID(), eTime, this, 0);
+			p->Execute();
+			
+		}
+		
+	}
+=======
+>>>>>>> 6ee396e0611caf3d3672325303645bbc0fd01a4b
 };

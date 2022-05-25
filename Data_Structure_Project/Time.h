@@ -19,8 +19,22 @@ public:
 	void printTime();
 	Time operator -(Time t);
 	Time operator+ (Time t);
+	Time operator= (Time t);
+	bool operator== (Time t);
 };
+Time Time::operator=(Time t)
+{
+	t.day = day;
+	t.hour = hour;
+	return t;
+}
 
+bool Time::operator==(Time t)
+{
+	if (t.day == day && t.hour == hour)
+		return true;
+	return false;
+}
 Time Time::operator-(Time t) {
 	Time temp;
 	if (hour < t.hour) {
