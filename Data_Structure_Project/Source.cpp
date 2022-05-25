@@ -322,6 +322,7 @@ int main()
 				bVIP = true;
 		}
 	}
+<<<<<<< HEAD
 	//if (type == 1)
 	//{
 	//	while (1)
@@ -355,20 +356,8 @@ int main()
 	//	//{
 	//	//	com->moveToDelivered(&waitingNormalCargo, &waitingSpecialCargo, &waitingVIPCargo, &deliveredNormalCargo, &deliveredSpecialCargo, &deliveredVIPCargo);
 	//	//}
+=======
 
+>>>>>>> 6ee396e0611caf3d3672325303645bbc0fd01a4b
 
-	//}
-	//else if (type == 2)
-	//{
-	//	char temp;
-	//	cout << "wait for phase 2 :)";
-	//	cin >> temp;
-
-	//}
-	//else if (type == 3)
-	//{
-	//	char temp;
-	//	cout << "wait for phase 2 :(";
-	//	cin >> temp;
-	//}
 }

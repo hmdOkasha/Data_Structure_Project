@@ -16,7 +16,7 @@ private:
 	Time cargoWaitTime;
 	Time cargoDeliveryTime;
 	int truckUtilization;
-	int noLoadingTrucks;
+	int numLoadingTrucks;
 
 public:
 
@@ -93,7 +93,7 @@ public:
 			return false;
 
 		//If more than 3 trucks are being loaded
-		if (noLoadingTrucks >= 3)
+		if (numLoadingTrucks >= 3)
 			return false;
 
 		return h;
@@ -106,7 +106,12 @@ public:
 		else
 			return false;
 	}
-
+	
+	void setNumLoadingTrucks()
+	{
+		
+	}
+	
 	void outputFile(ofstream& outfile) {
 		outfile << "CDT  CID  PT  WT  TID" << endl;
 		int M = deliveredCargos.QueueCount();
@@ -118,6 +123,7 @@ public:
 
 		}
 	}
+<<<<<<< HEAD
 
 	void loadVIP()
 	{
@@ -225,4 +231,6 @@ public:
 		}
 		
 	}
+=======
+>>>>>>> 6ee396e0611caf3d3672325303645bbc0fd01a4b
 };
